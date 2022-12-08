@@ -14,7 +14,6 @@ public class Score implements Serializable{
     private Integer score;
     private String state;
 
-    private String testdata;
 
 
     public Integer getId() {
@@ -41,16 +40,8 @@ public class Score implements Serializable{
         this.state = state;
     }
 
-    public String getTestdata() {
-        return testdata;
-    }
-
-    public void setTestdata(String testdata) {
-        this.testdata = testdata;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "client_id_client")
+    @JoinColumn(name = "client_id")
     private Client client;
     @ManyToOne
     @JoinColumn(name = "movie_id")

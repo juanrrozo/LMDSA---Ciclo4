@@ -13,22 +13,14 @@ public class Movie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer id;
+    private Integer idMovie;
     private String name;
     @ManyToOne
     @JoinColumn(name = "categories_id")
     private Category categories;
-    @ManyToOne
-    @JoinColumn(name = "staff_list_id")
-    private Staff staffList;
 
-    public Staff getStaffList() {
-        return staffList;
-    }
+    private String staffList;
 
-    public void setStaffList(Staff staffList) {
-        this.staffList = staffList;
-    }
 
     public Category getCategories() {
         return categories;
@@ -38,16 +30,12 @@ public class Movie implements Serializable {
         this.categories = categories;
     }
 
-    public Movie() {
-    }
-
-
     public Integer getId() {
-        return id;
+        return idMovie;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idMovie = id;
     }
 
     public String getName() {
@@ -58,7 +46,13 @@ public class Movie implements Serializable {
         this.name = name;
     }
 
+    public String getStaffList() {
+        return staffList;
+    }
 
+    public void setStaffList(String staffList) {
+        this.staffList = staffList;
+    }
 }
 
 

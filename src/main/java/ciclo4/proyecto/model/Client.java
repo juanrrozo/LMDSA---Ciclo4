@@ -20,6 +20,7 @@ public class Client implements Serializable {
     private String name;
 
     private String lastName;
+
     private String birthDate;
     private String phone;
 
