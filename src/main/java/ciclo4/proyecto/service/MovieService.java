@@ -4,12 +4,14 @@
 package ciclo4.proyecto.service;
 
 import ciclo4.proyecto.dto.ResponseDto;
+import ciclo4.proyecto.entities.Category;
 import ciclo4.proyecto.entities.Movie;
 import ciclo4.proyecto.repository.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +42,10 @@ public class MovieService {
             response.status=false;
             response.message=MOVIE_REGISTERED;
         }else{
+            //validar que ese id de la categoría exista y lo consulto, una vez que lo consulte lo agrego al elemento de request
+            //
+            List<Category> listFromRequest = new ArrayList<>();
+            request.setCategories(listFromRequest);
             repository.save(request);
             response.status=true;
             response.message=MOVIE_SUCCESS;

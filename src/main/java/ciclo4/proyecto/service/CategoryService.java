@@ -25,7 +25,7 @@ public class CategoryService {
     @Autowired
     CrudMovieRepository movieRepository;
 
-    public Iterable<Category> get() {
+    public Iterable<Category> getByMovies() {
         Iterable<Category> response;
 
         Iterable<Movie> movies = movieRepository.findAll();
@@ -44,6 +44,11 @@ public class CategoryService {
             }
         }
 
+        return categories;
+    }
+
+    public Iterable<Category> get() {
+        Iterable<Category> categories = repository.findAll();
         return categories;
     }
 
